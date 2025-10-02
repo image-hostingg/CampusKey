@@ -1,0 +1,255 @@
+// Campus Key Landing Page JavaScript
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Tab functionality
+    const tabs = document.querySelectorAll('.tab');
+    const tabContents = document.querySelectorAll('.tab-content');
+    
+    tabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+            // Remove active class from all tabs
+            tabs.forEach(t => t.classList.remove('active'));
+            
+            // Add active class to clicked tab
+            this.classList.add('active');
+            
+            // Hide all tab contents
+            tabContents.forEach(content => content.classList.add('hidden'));
+            
+            // Show corresponding tab content
+            const targetTab = this.getAttribute('data-tab');
+            const targetContent = document.getElementById(targetTab + '-content');
+            if (targetContent) {
+                targetContent.classList.remove('hidden');
+            }
+        });
+    });
+
+    // Search functionality
+    const searchInput = document.querySelector('.search-input');
+    const searchBtn = document.querySelector('.search-btn');
+    
+    function performSearch() {
+        const searchTerm = searchInput.value.trim();
+        if (searchTerm) {
+            // In a real application, this would make an API call
+            console.log('Searching for:', searchTerm);
+            alert(`Searching for: "${searchTerm}"\n\nThis is a demo. In a real application, this would search through courses, quizzes, and documents.`);
+        }
+    }
+    
+    searchBtn.addEventListener('click', performSearch);
+    
+    searchInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            performSearch();
+        }
+    });
+
+    // Smooth scrolling for scroll indicator
+    const scrollIndicator = document.querySelector('.scroll-indicator');
+    if (scrollIndicator) {
+        scrollIndicator.addEventListener('click', function() {
+            const statisticsSection = document.querySelector('.statistics');
+            if (statisticsSection) {
+                statisticsSection.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    }
+
+    // University button interactions
+    const universityBtns = document.querySelectorAll('.university-btn');
+    universityBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const universityName = this.textContent;
+            console.log('Selected university:', universityName);
+            // In a real application, this would navigate to the university page
+            alert(`Selected: ${universityName}\n\nThis is a demo. In a real application, this would navigate to the university's study materials.`);
+        });
+    });
+
+    // View all universities button
+    const viewAllBtn = document.querySelector('.view-all-btn');
+    if (viewAllBtn) {
+        viewAllBtn.addEventListener('click', function() {
+            console.log('View all universities clicked');
+            alert('View All Universities\n\nThis is a demo. In a real application, this would show a complete list of all universities.');
+        });
+    }
+
+    // Company culture button
+    const cultureBtn = document.querySelector('.culture-btn');
+    if (cultureBtn) {
+        cultureBtn.addEventListener('click', function() {
+            console.log('Check our openings clicked');
+            alert('Check Our Openings\n\nThis is a demo. In a real application, this would navigate to the careers page.');
+        });
+    }
+
+    // Sign in button
+    const signInBtn = document.querySelector('.sign-in-btn');
+    if (signInBtn) {
+        signInBtn.addEventListener('click', function(e) {
+            // Let the link work naturally, no need for preventDefault
+            console.log('Sign in clicked - navigating to unified auth page');
+        });
+    }
+
+    // Sign up button
+    const signUpBtn = document.querySelector('.sign-up-btn');
+    if (signUpBtn) {
+        signUpBtn.addEventListener('click', function(e) {
+            // Let the link work naturally, no need for preventDefault
+            console.log('Sign up clicked - navigating to unified auth page');
+        });
+    }
+
+    // Language selector
+    const languageSelectors = document.querySelectorAll('.language-selector, .lang-btn');
+    languageSelectors.forEach(selector => {
+        selector.addEventListener('click', function() {
+            console.log('Language selector clicked');
+            alert('Language Selection\n\nThis is a demo. In a real application, this would open a language/region selection dropdown.');
+        });
+    });
+
+    // App store badges
+    const appBadges = document.querySelectorAll('.app-badge');
+    appBadges.forEach(badge => {
+        badge.addEventListener('click', function() {
+            console.log('App store badge clicked');
+            alert('App Store\n\nThis is a demo. In a real application, this would redirect to the respective app store.');
+        });
+    });
+
+    // Social media links
+    const socialLinks = document.querySelectorAll('.social-media a');
+    socialLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const platform = this.querySelector('i').className.split('fa-')[1];
+            console.log('Social media clicked:', platform);
+            alert(`${platform.charAt(0).toUpperCase() + platform.slice(1)} Social Media\n\nThis is a demo. In a real application, this would redirect to the respective social media page.`);
+        });
+    });
+
+    // Trustpilot link
+    const trustpilotLink = document.querySelector('.trustpilot-link');
+    if (trustpilotLink) {
+        trustpilotLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            console.log('Trustpilot link clicked');
+            alert('Trustpilot Reviews\n\nThis is a demo. In a real application, this would redirect to the Trustpilot reviews page.');
+        });
+    }
+
+
+    // Navigation items
+    const navItems = document.querySelectorAll('.nav-item');
+    function smoothScrollTo(targetId) {
+        const el = document.querySelector(targetId);
+        if (el) {
+            el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }
+    navItems.forEach(item => {
+        item.addEventListener('click', function() {
+            const target = this.getAttribute('data-target');
+            if (target) smoothScrollTo(target);
+        });
+    });
+
+    // Add hover effects for interactive elements
+    const interactiveElements = document.querySelectorAll('button, .nav-item, .university-btn, .social-media a, .lang-btn');
+    interactiveElements.forEach(element => {
+        element.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-2px)';
+            this.style.transition = 'transform 0.3s ease';
+        });
+        
+        element.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+        });
+    });
+
+    // Add loading animation for search
+    function showSearchLoading() {
+        const searchBtn = document.querySelector('.search-btn i');
+        if (searchBtn) {
+            searchBtn.classList.add('fa-spin');
+            setTimeout(() => {
+                searchBtn.classList.remove('fa-spin');
+            }, 1000);
+        }
+    }
+
+    // Enhanced search with loading
+    searchBtn.addEventListener('click', function() {
+        showSearchLoading();
+        setTimeout(performSearch, 500);
+    });
+
+    // Add scroll animations
+    function animateOnScroll() {
+        const elements = document.querySelectorAll('.stat-item, .university-btn, .footer-column');
+        const windowHeight = window.innerHeight;
+        
+        elements.forEach(element => {
+            const elementTop = element.getBoundingClientRect().top;
+            const elementVisible = 150;
+            
+            if (elementTop < windowHeight - elementVisible) {
+                element.style.opacity = '1';
+                element.style.transform = 'translateY(0)';
+            }
+        });
+    }
+
+    // Initialize scroll animations
+    const animatedElements = document.querySelectorAll('.stat-item, .university-btn, .footer-column');
+    animatedElements.forEach(element => {
+        element.style.opacity = '0';
+        element.style.transform = 'translateY(20px)';
+        element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    });
+
+    window.addEventListener('scroll', animateOnScroll);
+    animateOnScroll(); // Run once on load
+
+    // Add keyboard navigation support
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Tab') {
+            // Add focus styles for keyboard navigation
+            document.body.classList.add('keyboard-navigation');
+        }
+    });
+
+    document.addEventListener('mousedown', function() {
+        // Remove focus styles when using mouse
+        document.body.classList.remove('keyboard-navigation');
+    });
+
+    // Console welcome message
+    console.log('%c🎓 Welcome to Campus Key!', 'color: #6B46C1; font-size: 20px; font-weight: bold;');
+    console.log('%cThis is a demo landing page. All interactive elements are functional but show demo alerts.', 'color: #14B8A6; font-size: 14px;');
+    console.log('%cIn a real application, these would connect to actual APIs and navigation.', 'color: #84CC16; font-size: 14px;');
+});
+
+// Add CSS for keyboard navigation
+const style = document.createElement('style');
+style.textContent = `
+    .keyboard-navigation button:focus,
+    .keyboard-navigation .nav-item:focus,
+    .keyboard-navigation .university-btn:focus,
+    .keyboard-navigation .social-media a:focus,
+    .keyboard-navigation .lang-btn:focus {
+        outline: 2px solid #6B46C1;
+        outline-offset: 2px;
+    }
+`;
+document.head.appendChild(style);
+
+// Remove previews: no extra demo handlers needed

@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Key - Grow Smarter Together</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="header-container">
+            <div class="header-left">
+                <div class="logo">
+                    <div class="logo-icon">S</div>
+                    <span class="logo-text">Campus-Key</span>
+                </div>
+            </div>
+            
+            <nav class="header-nav">
+                <div class="nav-item" data-target="#ai-help">
+                    <span>AI Help</span>
+                </div>
+                <div class="nav-item" data-target="#notes-feature">
+                    <span>Notes</span>
+                </div>
+                <div class="nav-item" data-target="#pyq-feature">
+                    <span>PYQ</span>
+                </div>
+            </nav>
+            
+            <div class="header-right">
+                <a href="auth.html" class="sign-in-btn">Sign in</a>
+                <a href="auth.html" class="sign-up-btn">Sign up</a>
+                <div class="language-selector">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMTgiIHZpZXdCb3g9IjAgMCAyNCAxOCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjI0IiBoZWlnaHQ9IjE4IiBmaWxsPSIjRkZGRkZGIi8+CjxyZWN0IHdpZHRoPSIyNCIgaGVpZ2h0PSI2IiBmaWxsPSIjRkY5OTAwIi8+CjxyZWN0IHk9IjEyIiB3aWR0aD0iMjQiIGhlaWdodD0iNiIgZmlsbD0iIzAwOTkwMCIvPgo8Y2lyY2xlIGN4PSIxMiIgY3k9IjkiIHI9IjMiIGZpbGw9IiMwMDAwODAiLz4KPC9zdmc+" alt="India Flag" class="flag-icon">
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Background decorative elements -->
+        <div class="header-bg-elements">
+            <div class="bg-blob bg-blob-1"></div>
+            <div class="bg-blob bg-blob-3"></div>
+            <div class="bg-blob bg-blob-4"></div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <h1 class="hero-title">Grow smarter together.</h1>
+            <p class="hero-subtitle">Find top-rated study notes from students taking the same courses as you.</p>
+            
+            <div class="search-container">
+                <input type="text" placeholder="Search for courses, quizzes, or documents" class="search-input">
+                <button class="search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            
+            <div class="scroll-indicator">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Cards Section -->
+    <section id="features" class="feature-section">
+        <div class="feature-container">
+            <h2 class="feature-title">Key Features</h2>
+            <p class="feature-subtitle">A quick look at what Campus Key offers.</p>
+            <div class="features-grid">
+                <a id="ai-help" class="feature-card feature-link" href="javascript:void(0)">
+                    <div class="feature-icon" aria-hidden="true">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 3C7.03 3 3 6.58 3 11c0 2.53 1.23 4.79 3.17 6.3-.12.98-.54 2.38-1.61 3.57-.21.23-.06.61.25.61 1.27-.03 3.1-.39 4.64-1.32.78.18 1.6.27 2.45.27 4.97 0 9-3.58 9-8s-4.03-8-9-8Z" fill="currentColor"/>
+                        </svg>
+                    </div>
+                    <div class="feature-card-title">AI Chatbot Support</div>
+                    <div class="feature-card-desc">Ask study questions and get instant guidance.</div>
+                </a>
+                <a id="pyq-feature" class="feature-card feature-link" href="javascript:void(0)">
+                    <div class="feature-icon" aria-hidden="true">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6 2h9l3 3v15a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.5"/>
+                            <path d="M9 9h6M9 13h6M9 17h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <div class="feature-card-title">Previous Year Questions</div>
+                    <div class="feature-card-desc">Browse exam papers by course and year.</div>
+                </a>
+                <a id="notes-feature" class="feature-card feature-link" href="javascript:void(0)">
+                    <div class="feature-icon" aria-hidden="true">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 5a2 2 0 0 1 2-2h9l3 3v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5Z" stroke="currentColor" stroke-width="1.5"/>
+                            <path d="M8 9h8M8 13h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <div class="feature-card-title">Semester-wise Notes</div>
+                    <div class="feature-card-desc">Curated notes organized per semester.</div>
+                </a>
+                <div class="feature-card muted">
+                    <div class="feature-icon" aria-hidden="true">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5 8h14M7 12h10M9 16h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <div class="feature-card-title">Webinars & Workshops</div>
+                    <div class="feature-card-desc">Join upcoming sessions to boost your skills.</div>
+                </div>
+                <div class="feature-card muted">
+                    <div class="feature-icon" aria-hidden="true">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16Z" stroke="currentColor" stroke-width="1.5"/>
+                            <path d="M8.5 10.5c.67-.67 1.83-.67 2.5 0l.5.5.5-.5c.67-.67 1.83-.67 2.5 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <div class="feature-card-title">Feedback</div>
+                    <div class="feature-card-desc">Share suggestions to help us improve.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="statistics">
+        <div class="stats-container">
+            <div class="stats-content">
+                <div class="stats-text">
+                    <h2 class="stats-title">No stress, just study success.</h2>
+                    <p class="stats-subtitle">Get notes, question papers, and guides—all in one place. Simple, free, and made for students like you.</p>
+
+                    <div class="highlights-grid">
+                        <div class="highlight-item">
+                            <div class="highlight-icon" aria-hidden="true">📚</div>
+                            <div class="highlight-content">
+                                <div class="highlight-title">Organized Resources</div>
+                                <div class="highlight-desc">Find notes by subject & semester</div>
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-icon" aria-hidden="true">🎯</div>
+                            <div class="highlight-content">
+                                <div class="highlight-title">Exam-Focused</div>
+                                <div class="highlight-desc">Get exactly what you need, no extra clutter</div>
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-icon" aria-hidden="true">🤝</div>
+                            <div class="highlight-content">
+                                <div class="highlight-title">Student-Friendly</div>
+                                <div class="highlight-desc">Built by students, for students</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="stats-illustration">
+                    <div class="hand-illustration">
+                        <div class="hand"></div>
+                        <div class="tablet">
+                            <div class="download-arrow"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Background decorative elements -->
+            <div class="stats-bg-elements">
+                <div class="bg-blob bg-blob-5"></div>
+                <div class="bg-blob bg-blob-6"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Universities/Documents Section -->
+    <section class="universities">
+        <div class="universities-container">
+            <h2 class="universities-title">Study smarter with trusted resources.</h2>
+            <p class="universities-subtitle">Access organized notes, past papers, and get instant help from a smart study assistant.</p>
+
+            <div class="uni-cards-grid">
+                <!-- Notes Preview Card -->
+                <div class="uni-card notes-card">
+                    <div class="uni-card-header">
+                        <div class="uni-icon" aria-hidden="true">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" stroke="currentColor" stroke-width="1.5"/>
+                                <path d="M6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" stroke="currentColor" stroke-width="1.5"/>
+                            </svg>
+                        </div>
+                        <div class="uni-card-title">Notes Preview</div>
+                    </div>
+                    <div class="notes-preview">
+                        <div class="pdf-thumbnail-stack">
+                            <div class="pdf-page-blur"></div>
+                            <div class="pdf-page-blur"></div>
+                            <div class="pdf-page-main">
+                                <div class="pdf-content">
+                                    <div class="pdf-line long"></div>
+                                    <div class="pdf-line"></div>
+                                    <div class="pdf-line"></div>
+                                    <div class="pdf-line long"></div>
+                                    <div class="pdf-line"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="notes-header">
+                            <div class="notes-title">DBMS Unit 2 Notes – 12 Pages</div>
+                            <div class="notes-subject">Database Management Systems</div>
+                        </div>
+                        <div class="notes-snippet">
+                            <div class="snippet-line">A database is a collection of related data that represents some aspect of the real world...</div>
+                            <div class="snippet-line">The database management system (DBMS) is the software that manages the database...</div>
+                            <div class="snippet-line">Key components include data definition, data manipulation, and data control...</div>
+                        </div>
+                    </div>
+                    <button class="view-notes-btn">Read Full Notes</button>
+            </div>
+            
+                <!-- Chatbot Preview Card -->
+                <div class="uni-card chat-card">
+                    <div class="uni-card-header">
+                        <div class="uni-icon" aria-hidden="true">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 3C7.03 3 3 6.58 3 11c0 2.53 1.23 4.79 3.17 6.3-.12.98-.54 2.38-1.61 3.57-.21.23-.06.61.25.61 1.27-.03 3.1-.39 4.64-1.32.78.18 1.6.27 2.45.27 4.97 0 9-3.58 9-8s-4.03-8-9-8Z" stroke="currentColor" stroke-width="1.5"/>
+                            </svg>
+                        </div>
+                        <div class="uni-card-title">Chatbot Preview</div>
+                    </div>
+                    <div class="chat-preview">
+                        <div class="bubble user">How do I study Trees quickly?</div>
+                        <div class="bubble bot">Start with terminology, then traverse (inorder, preorder, postorder), and practice with examples.</div>
+                    </div>
+                </div>
+
+                <!-- Learn, Engage & Get Certified Card -->
+                <div class="uni-card learn-card">
+                    <div class="uni-card-header">
+                        <div class="uni-icon" aria-hidden="true">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke="currentColor" stroke-width="1.5"/>
+                            </svg>
+                        </div>
+                        <div class="uni-card-title">✨ Learn, Engage & Get Certified</div>
+                    </div>
+                    <div class="learn-content">
+                        <p class="learn-subtext">Not just notes—explore free webinars, attend live sessions, and earn certificates to boost your skills and resume.</p>
+                        
+                        <div class="learn-features">
+                            <div class="learn-feature">
+                                <div class="feature-icon-small" aria-hidden="true">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" stroke="currentColor" stroke-width="1.5"/>
+                                        <path d="M6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" stroke="currentColor" stroke-width="1.5"/>
+                                    </svg>
+                                </div>
+                                <div class="feature-text">
+                                    <div class="feature-name">📖 Notes & Resources</div>
+                                    <div class="feature-desc">Well-structured notes, guides, and past papers.</div>
+                                </div>
+                            </div>
+                            
+                            <div class="learn-feature">
+                                <div class="feature-icon-small" aria-hidden="true">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3Z" stroke="currentColor" stroke-width="1.5"/>
+                                        <path d="M19 10v2a7 7 0 0 1-14 0v-2" stroke="currentColor" stroke-width="1.5"/>
+                                        <line x1="12" y1="19" x2="12" y2="23" stroke="currentColor" stroke-width="1.5"/>
+                                        <line x1="8" y1="23" x2="16" y2="23" stroke="currentColor" stroke-width="1.5"/>
+                                    </svg>
+                                </div>
+                                <div class="feature-text">
+                                    <div class="feature-name">🎤 Free Webinars</div>
+                                    <div class="feature-desc">Interactive sessions on coding, exams, and career skills.</div>
+                                </div>
+            </div>
+            
+                            <div class="learn-feature">
+                                <div class="feature-icon-small" aria-hidden="true">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" stroke="currentColor" stroke-width="1.5"/>
+                                        <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" stroke="currentColor" stroke-width="1.5"/>
+                                        <path d="M4 15h1.5a2.5 2.5 0 0 1 0 5H4" stroke="currentColor" stroke-width="1.5"/>
+                                        <path d="M20 15h-1.5a2.5 2.5 0 0 0 0 5H20" stroke="currentColor" stroke-width="1.5"/>
+                                        <path d="M8 2v4M16 2v4M8 18v4M16 18v4" stroke="currentColor" stroke-width="1.5"/>
+                                    </svg>
+                                </div>
+                                <div class="feature-text">
+                                    <div class="feature-name">🏅 Certificates & Achievements</div>
+                                    <div class="feature-desc">Earn certificates by attending webinars and completing study challenges.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Company Culture Section -->
+    <section class="company-culture">
+        <div class="culture-container">
+            <div class="culture-illustration">
+                <div class="eye-illustration">
+                    <div class="eye">
+                        <div class="iris"></div>
+                        <div class="pupil"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="culture-content">
+                <h2 class="culture-title">We work hard & We play hard!</h2>
+                <p class="culture-subtitle">Want to know more about our company culture, values and job openings?</p>
+                <button class="culture-btn">Check our openings</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="logo-icon">S</div>
+                    <span class="logo-text">campus-key</span>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">campus-key Premium <i class="fas fa-gem"></i></a></li>
+                            <li><a href="#">Academic Integrity</a></li>
+                            <li><a href="#">Jobs</a></li>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Dutch Website</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Study Tools</h4>
+                        <ul>
+                            <li><a href="#">All Tools</a></li>
+                            <li><a href="#">Ask AI</a></li>
+                            <li><a href="#">AI Notes</a></li>
+                            <li><a href="#">AI Quiz Generator</a></li>
+                            <li><a href="#">Notes To Quiz Videos</a></li>
+                            <li><a href="#">Notes To Audio</a></li>
+                            <li><a href="#">Infographic Generator</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Contact & Help</h4>
+                        <ul>
+                            <li><a href="#">F.A.Q.</a></li>
+                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">Newsroom</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Legal</h4>
+                        <ul>
+                            <li><a href="#">Terms</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Cookie Settings</a></li>
+                            <li><a href="#">Cookie Statement</a></li>
+                            <li><a href="#">Copyright & DSA</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="footer-apps">
+                    <a href="#" class="trustpilot-link">View our reviews on Trustpilot</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="social-media">
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+                
+                <div class="footer-disclaimer">
+                    <p>campus-key is not affiliated to or endorsed by any school, college or university.</p>
+                    <p>Copyright © 2025</p>
+                </div>
+                
+                <div class="footer-language">
+                    <button class="lang-btn">
+                        <i class="fas fa-globe"></i>
+                        English (IN)
+                    </button>
+                    <button class="lang-btn">
+                        <i class="fas fa-map-pin"></i>
+                        India
+                    </button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
