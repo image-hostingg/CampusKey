@@ -236,6 +236,86 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('%c🎓 Welcome to Campus Key!', 'color: #6B46C1; font-size: 20px; font-weight: bold;');
     console.log('%cThis is a demo landing page. All interactive elements are functional but show demo alerts.', 'color: #14B8A6; font-size: 14px;');
     console.log('%cIn a real application, these would connect to actual APIs and navigation.', 'color: #84CC16; font-size: 14px;');
+
+    // =================== AUTH MODAL & FORMS ===================
+    (function() {
+      const modal = document.getElementById('auth-modal');
+      const openBtn = document.querySelector('.sign-in-btn');
+      const closeBtn = document.querySelector('.auth-close');
+      const loginForm = document.getElementById('login-form');
+      const registerForm = document.getElementById('register-form');
+      const showRegister = document.getElementById('show-register');
+      const showLogin = document.getElementById('show-login');
+
+      function openModal() {
+        modal.classList.remove('hidden');
+        // Show login by default
+        loginForm.classList.add('active');
+        registerForm.classList.remove('active');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeModal() {
+        modal.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+      if (openBtn) openBtn.addEventListener('click', openModal);
+      if (closeBtn) closeBtn.addEventListener('click', closeModal);
+      // Close on outside click
+      if (modal) {
+        modal.addEventListener('mousedown', function(e) {
+          if (e.target === modal) closeModal();
+        });
+      }
+      // ESC key closes
+      document.addEventListener('keydown', function(e) {
+        if (!modal.classList.contains('hidden') && e.key === 'Escape') closeModal();
+      });
+      // Toggle forms
+      if (showRegister) showRegister.addEventListener('click', function(e) {
+        e.preventDefault();
+        loginForm.classList.remove('active');
+        registerForm.classList.add('active');
+      });
+      if (showLogin) showLogin.addEventListener('click', function(e) {
+        e.preventDefault();
+        registerForm.classList.remove('active');
+        loginForm.classList.add('active');
+      });
+      // Prevent form submit (demo)
+      [loginForm, registerForm].forEach(form => {
+        if (form) form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          alert('Demo only. No backend connected.');
+        });
+      });
+    })();
+
+    // Register button opens modal to register form
+    const registerBtn = document.querySelector('.register-btn');
+    if (registerBtn) {
+      registerBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        const modal = document.getElementById('auth-modal');
+        const loginForm = document.getElementById('login-form');
+        const registerForm = document.getElementById('register-form');
+        modal.classList.remove('hidden');
+        loginForm.classList.remove('active');
+        registerForm.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    }
+
+    // Sticky header color change on scroll
+    const header = document.querySelector('.header');
+    function handleHeaderScroll() {
+      if (window.scrollY > 10) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    }
+    window.addEventListener('scroll', handleHeaderScroll);
+    handleHeaderScroll();
 });
 
 // Add CSS for keyboard navigation

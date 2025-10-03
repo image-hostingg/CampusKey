@@ -32,12 +32,7 @@
             </nav>
             
             <div class="header-right">
-                <a href="auth.html" class="sign-in-btn">Sign in</a>
-                <a href="auth.html" class="sign-up-btn">Sign up</a>
-                <div class="language-selector">
-                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMTgiIHZpZXdCb3g9IjAgMCAyNCAxOCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjI0IiBoZWlnaHQ9IjE4IiBmaWxsPSIjRkZGRkZGIi8+CjxyZWN0IHdpZHRoPSIyNCIgaGVpZ2h0PSI2IiBmaWxsPSIjRkY5OTAwIi8+CjxyZWN0IHk9IjEyIiB3aWR0aD0iMjQiIGhlaWdodD0iNiIgZmlsbD0iIzAwOTkwMCIvPgo8Y2lyY2xlIGN4PSIxMiIgY3k9IjkiIHI9IjMiIGZpbGw9IiMwMDAwODAiLz4KPC9zdmc+" alt="India Flag" class="flag-icon">
-                    <i class="fas fa-chevron-down"></i>
-                </div>
+                <a class="sign-in-btn">Sign In / Sign Up</a>
             </div>
         </div>
         
@@ -48,6 +43,53 @@
             <div class="bg-blob bg-blob-4"></div>
         </div>
     </header>
+
+    <!-- Auth Modal: Login/Register -->
+    <div id="auth-modal" class="auth-modal hidden">
+      <div class="auth-card">
+        <div class="auth-forms">
+          <!-- Login Form -->
+          <form id="login-form" class="auth-form active" autocomplete="off">
+            <h2 class="auth-heading">Welcome Back 👋</h2>
+            <p class="auth-subtext">No stress, just study success.</p>
+            <div class="auth-group">
+              <label for="login-email">Email</label>
+              <input type="email" id="login-email" name="email" required placeholder="Enter your email" />
+            </div>
+            <div class="auth-group">
+              <label for="login-password">Password</label>
+              <input type="password" id="login-password" name="password" required placeholder="Enter your password" />
+            </div>
+            <button type="submit" class="auth-btn">Login</button>
+            <div class="auth-toggle-text">
+              Don’t have an account? <a href="#" id="show-register">Register here</a>
+            </div>
+          </form>
+          <!-- Register Form -->
+          <form id="register-form" class="auth-form" autocomplete="off">
+            <h2 class="auth-heading">Join the Community 🎓</h2>
+            <p class="auth-subtext">No stress, just study success.</p>
+            <div class="auth-group">
+              <label for="register-name">Full Name</label>
+              <input type="text" id="register-name" name="name" required placeholder="Enter your full name" />
+            </div>
+            <div class="auth-group">
+              <label for="register-email">Email</label>
+              <input type="email" id="register-email" name="email" required placeholder="Enter your email" />
+            </div>
+            <div class="auth-group">
+              <label for="register-password">Password</label>
+              <input type="password" id="register-password" name="password" required placeholder="Create a password" />
+            </div>
+            <button type="submit" class="auth-btn">Create Account</button>
+            <div class="auth-toggle-text">
+              Already have an account? <a href="#" id="show-login">Login here</a>
+            </div>
+          </form>
+        </div>
+        <button class="auth-close" aria-label="Close">&times;</button>
+      </div>
+    </div>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -302,109 +344,124 @@
         </div>
     </section>
 
-    <!-- Company Culture Section -->
-    <section class="company-culture">
-        <div class="culture-container">
-            <div class="culture-illustration">
-                <div class="eye-illustration">
-                    <div class="eye">
-                        <div class="iris"></div>
-                        <div class="pupil"></div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="culture-content">
-                <h2 class="culture-title">We work hard & We play hard!</h2>
-                <p class="culture-subtitle">Want to know more about our company culture, values and job openings?</p>
-                <button class="culture-btn">Check our openings</button>
-            </div>
+    <!-- Community Collaboration Section (updated) -->
+    <section class="community-collab">
+      <div class="collab-container">
+        <div class="collab-illustration">
+          <!-- Modern SVG: Students collaborating/uploading notes -->
+          <svg width="260" height="180" viewBox="0 0 260 180" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="10" y="40" width="80" height="100" rx="16" fill="#F3F4F6"/>
+            <rect x="170" y="20" width="80" height="120" rx="16" fill="#EEF2FF"/>
+            <rect x="90" y="60" width="80" height="100" rx="16" fill="#A78BFA" fill-opacity="0.13"/>
+            <!-- Student avatars -->
+            <circle cx="50" cy="60" r="18" fill="#6B46C1"/>
+            <circle cx="210" cy="50" r="18" fill="#14B8A6"/>
+            <circle cx="130" cy="120" r="18" fill="#EC4899"/>
+            <!-- Upload arrow -->
+            <path d="M130 110v-20m0 0l-8 8m8-8l8 8" stroke="#6B46C1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- Chat bubbles -->
+            <rect x="30" y="100" width="40" height="18" rx="8" fill="#fff" stroke="#6B46C1" stroke-width="1.5"/>
+            <rect x="190" y="110" width="40" height="18" rx="8" fill="#fff" stroke="#14B8A6" stroke-width="1.5"/>
+            <rect x="110" y="80" width="40" height="18" rx="8" fill="#fff" stroke="#EC4899" stroke-width="1.5"/>
+          </svg>
         </div>
+        <div class="collab-content">
+          <h2 class="collab-title">Share, Support, Succeed—Together!</h2>
+          <p class="collab-subtitle">Campus Key is powered by students like you. Upload your notes, share resources, and help classmates thrive. Every upload makes our community smarter and stronger. Let’s build a culture of support, not competition. 📚✨</p>
+          <a href="#upload" class="collab-cta-btn">📤 Upload Your Notes</a>
+        </div>
+      </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <div class="logo-icon">S</div>
-                    <span class="logo-text">campus-key</span>
-                </div>
-                
-                <div class="footer-links">
-                    <div class="footer-column">
-                        <h4>Company</h4>
-                        <ul>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">campus-key Premium <i class="fas fa-gem"></i></a></li>
-                            <li><a href="#">Academic Integrity</a></li>
-                            <li><a href="#">Jobs</a></li>
-                            <li><a href="#">Blog</a></li>
-                            <li><a href="#">Dutch Website</a></li>
-                        </ul>
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <div class="logo-icon">S</div>
+                        <span class="logo-text">campus-key</span>
                     </div>
-                    
-                    <div class="footer-column">
-                        <h4>Study Tools</h4>
-                        <ul>
-                            <li><a href="#">All Tools</a></li>
-                            <li><a href="#">Ask AI</a></li>
-                            <li><a href="#">AI Notes</a></li>
-                            <li><a href="#">AI Quiz Generator</a></li>
-                            <li><a href="#">Notes To Quiz Videos</a></li>
-                            <li><a href="#">Notes To Audio</a></li>
-                            <li><a href="#">Infographic Generator</a></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="footer-column">
-                        <h4>Contact & Help</h4>
-                        <ul>
-                            <li><a href="#">F.A.Q.</a></li>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">Newsroom</a></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="footer-column">
-                        <h4>Legal</h4>
-                        <ul>
-                            <li><a href="#">Terms</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Cookie Settings</a></li>
-                            <li><a href="#">Cookie Statement</a></li>
-                            <li><a href="#">Copyright & DSA</a></li>
-                        </ul>
+                    <p class="footer-description">Your ultimate platform for academic success. Access study materials, AI assistance, and connect with fellow students.</p>
+                    <div class="footer-trust">
+                        <a href="#" class="trustpilot-link">
+                            <i class="fas fa-star"></i>
+                            View our reviews on Trustpilot
+                        </a>
                     </div>
                 </div>
                 
-                <div class="footer-apps">
-                    <a href="#" class="trustpilot-link">View our reviews on Trustpilot</a>
+                <div class="footer-links-wrapper">
+                    <div class="footer-links-section">
+                        <div class="footer-column">
+                            <h4>Company</h4>
+                            <ul>
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Premium <i class="fas fa-gem"></i></a></li>
+                                <li><a href="#">Academic Integrity</a></li>
+                                <li><a href="#">Careers</a></li>
+                                <li><a href="#">Blog</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="footer-column">
+                            <h4>Study Tools</h4>
+                            <ul>
+                                <li><a href="#">All Tools</a></li>
+                                <li><a href="#">Ask AI</a></li>
+                                <li><a href="#">AI Notes</a></li>
+                                <li><a href="#">Quiz Generator</a></li>
+                                <li><a href="#">Study Videos</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="footer-links-section">
+                        <div class="footer-column">
+                            <h4>Support</h4>
+                            <ul>
+                                <li><a href="#">Help Center</a></li>
+                                <li><a href="#">Contact Us</a></li>
+                                <li><a href="#">F.A.Q.</a></li>
+                                <li><a href="#">Newsroom</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="footer-column">
+                            <h4>Legal</h4>
+                            <ul>
+                                <li><a href="#">Terms of Use</a></li>
+                                <li><a href="#">Privacy Policy</a></li>
+                                <li><a href="#">Cookie Settings</a></li>
+                                <li><a href="#">Copyright</a></li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <div class="social-media">
-                    <a href="#"><i class="fab fa-tiktok"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
+                <div class="footer-social">
+                    <div class="social-links">
+                        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
                 </div>
                 
-                <div class="footer-disclaimer">
-                    <p>campus-key is not affiliated to or endorsed by any school, college or university.</p>
-                    <p>Copyright © 2025</p>
+                <div class="footer-info">
+                    <div class="footer-disclaimer">
+                        <p>campus-key is not affiliated to or endorsed by any school, college or university.</p>
+                        <p>Copyright © 2025 campus-key. All rights reserved.</p>
+                    </div>
                 </div>
                 
-                <div class="footer-language">
-                    <button class="lang-btn">
+                <div class="footer-settings">
+                    <button class="settings-btn">
                         <i class="fas fa-globe"></i>
                         English (IN)
-                    </button>
-                    <button class="lang-btn">
-                        <i class="fas fa-map-pin"></i>
-                        India
                     </button>
                 </div>
             </div>
