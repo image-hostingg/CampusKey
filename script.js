@@ -1,6 +1,112 @@
 // Campus Key Landing Page JavaScript
 
 document.addEventListener('DOMContentLoaded', function() {
+    // ========== Mobile Menu Functionality ==========
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const headerElem = document.querySelector('.header');
+    const navContainer = document.querySelector('.nav-container');
+
+    // Header scroll behavior
+    function handleHeaderScroll() {
+        if (window.scrollY > 10) {
+            headerElem?.classList.add('scrolled');
+        } else {
+            headerElem?.classList.remove('scrolled');
+        }
+    }
+    window.addEventListener('scroll', handleHeaderScroll);
+    handleHeaderScroll();
+
+    // Mobile menu toggle
+    function toggleMobileMenu(show) {
+        if (headerElem && mobileMenuBtn) {
+            if (typeof show === 'boolean') {
+                headerElem.classList.toggle('mobile-menu-open', show);
+                mobileMenuBtn.setAttribute('aria-expanded', show ? 'true' : 'false');
+            } else {
+                headerElem.classList.toggle('mobile-menu-open');
+                mobileMenuBtn.setAttribute('aria-expanded', 
+                    headerElem.classList.contains('mobile-menu-open') ? 'true' : 'false'
+                );
+            }
+        }
+    }
+
+    // Mobile menu click handler
+    if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleMobileMenu();
+        });
+    }
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        const isClickInside = headerElem?.contains(e.target);
+        if (!isClickInside && headerElem?.classList.contains('mobile-menu-open')) {
+            toggleMobileMenu(false);
+        }
+    });
+
+    // Close menu when clicking nav items
+    document.querySelectorAll('.nav-item').forEach(item => {
+        item.addEventListener('click', () => {
+            if (window.innerWidth <= 768) {
+                toggleMobileMenu(false);
+            }
+        });
+    });
+
+    // ========== Footer Dropdowns Functionality ==========
+    // Footer mobile dropdowns
+    const footerColumns = document.querySelectorAll('.footer-column');
+    footerColumns.forEach(column => {
+        const heading = column.querySelector('h4');
+        if (heading) {
+            heading.addEventListener('click', (e) => {
+                // Prevent default action and stop the event from bubbling up
+                e.preventDefault();
+                e.stopPropagation();
+                
+                if (window.innerWidth <= 768) {
+                    const isActive = column.classList.contains('active');
+                    
+                    // Close all other columns first
+                    footerColumns.forEach(otherColumn => {
+                        if (otherColumn !== column) {
+                            otherColumn.classList.remove('active');
+                        }
+                    });
+                    
+                    // Then, toggle the current column
+                    if (!isActive) {
+                        column.classList.add('active');
+                    } else {
+                        column.classList.remove('active');
+                    }
+                }
+            });
+        }
+    });
+
+    // Reset footer columns on mobile/desktop switch
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            if (window.innerWidth > 768) {
+                // Reset mobile menu
+                headerElem?.classList.remove('mobile-menu-open');
+                mobileMenuBtn?.setAttribute('aria-expanded', 'false');
+                
+                // Reset footer dropdowns
+                footerColumns.forEach(column => {
+                    column.classList.remove('active');
+                });
+            }
+        }, 250);
+    });
+
     // Tab functionality
     const tabs = document.querySelectorAll('.tab');
     const tabContents = document.querySelectorAll('.tab-content');
@@ -247,75 +353,92 @@ document.addEventListener('DOMContentLoaded', function() {
       const showRegister = document.getElementById('show-register');
       const showLogin = document.getElementById('show-login');
 
-      function openModal() {
-        modal.classList.remove('hidden');
-        // Show login by default
-        loginForm.classList.add('active');
-        registerForm.classList.remove('active');
+      function openModal(showRegisterForm = false) {
+        if (!modal) return;
+        
+        modal.classList.add('visible');
+        setTimeout(() => {
+          modal.classList.add('fade-in');
+        }, 10); // Small delay to ensure transition triggers
+
+        if (showRegisterForm) {
+          loginForm.classList.remove('active');
+          registerForm.classList.add('active');
+        } else {
+          loginForm.classList.add('active');
+          registerForm.classList.remove('active');
+        }
         document.body.style.overflow = 'hidden';
       }
+
       function closeModal() {
-        modal.classList.add('hidden');
+        if (!modal) return;
+
+        modal.classList.remove('fade-in');
+        // Listen for the transition to end before setting display to none
+        modal.addEventListener('transitionend', function handler() {
+          modal.classList.remove('visible');
+          modal.removeEventListener('transitionend', handler);
+        });
         document.body.style.overflow = '';
       }
-      if (openBtn) openBtn.addEventListener('click', openModal);
+
+      if (openBtn) {
+        openBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          openModal();
+        });
+      }
+      
       if (closeBtn) closeBtn.addEventListener('click', closeModal);
+
       // Close on outside click
       if (modal) {
         modal.addEventListener('mousedown', function(e) {
           if (e.target === modal) closeModal();
         });
       }
+
       // ESC key closes
       document.addEventListener('keydown', function(e) {
-        if (!modal.classList.contains('hidden') && e.key === 'Escape') closeModal();
+        if (modal.classList.contains('visible') && e.key === 'Escape') {
+          closeModal();
+        }
       });
+
       // Toggle forms
       if (showRegister) showRegister.addEventListener('click', function(e) {
         e.preventDefault();
         loginForm.classList.remove('active');
         registerForm.classList.add('active');
       });
+
       if (showLogin) showLogin.addEventListener('click', function(e) {
         e.preventDefault();
         registerForm.classList.remove('active');
         loginForm.classList.add('active');
       });
+
       // Prevent form submit (demo)
       [loginForm, registerForm].forEach(form => {
         if (form) form.addEventListener('submit', function(e) {
           e.preventDefault();
           alert('Demo only. No backend connected.');
+          closeModal(); // Close modal on successful "submit"
         });
       });
+
+      // Handle register button if it exists separately
+      const registerBtn = document.querySelector('.register-btn');
+      if (registerBtn) {
+        registerBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          openModal(true); // Open modal and show register form
+        });
+      }
     })();
 
-    // Register button opens modal to register form
-    const registerBtn = document.querySelector('.register-btn');
-    if (registerBtn) {
-      registerBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        const modal = document.getElementById('auth-modal');
-        const loginForm = document.getElementById('login-form');
-        const registerForm = document.getElementById('register-form');
-        modal.classList.remove('hidden');
-        loginForm.classList.remove('active');
-        registerForm.classList.add('active');
-        document.body.style.overflow = 'hidden';
-      });
-    }
 
-    // Sticky header color change on scroll
-    const header = document.querySelector('.header');
-    function handleHeaderScroll() {
-      if (window.scrollY > 10) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
-    }
-    window.addEventListener('scroll', handleHeaderScroll);
-    handleHeaderScroll();
 });
 
 // Add CSS for keyboard navigation

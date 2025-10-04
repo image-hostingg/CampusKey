@@ -19,20 +19,26 @@
                 </div>
             </div>
             
-            <nav class="header-nav">
-                <div class="nav-item" data-target="#ai-help">
-                    <span>AI Help</span>
-                </div>
-                <div class="nav-item" data-target="#notes-feature">
-                    <span>Notes</span>
-                </div>
-                <div class="nav-item" data-target="#pyq-feature">
-                    <span>PYQ</span>
-                </div>
-            </nav>
+            <button type="button" class="mobile-menu-btn" aria-label="Toggle menu">
+                <span class="hamburger"></span>
+            </button>
             
-            <div class="header-right">
-                <a class="sign-in-btn">Sign In / Sign Up</a>
+            <div class="nav-container">
+                <nav class="header-nav">
+                    <div class="nav-item" data-target="#ai-help">
+                        <span>AI Help</span>
+                    </div>
+                    <div class="nav-item" data-target="#notes-feature">
+                        <span>Notes</span>
+                    </div>
+                    <div class="nav-item" data-target="#pyq-feature">
+                        <span>PYQ</span>
+                    </div>
+                </nav>
+                
+                <div class="header-right">
+                    <a class="sign-in-btn">Sign In / Sign Up</a>
+                </div>
             </div>
         </div>
         
@@ -87,7 +93,7 @@
             </div>
           </form>
         </div>
-        <button class="auth-close" aria-label="Close">&times;</button>
+        <button type="button" class="auth-close" aria-label="Close">&times;</button>
       </div>
     </div>
 
@@ -99,7 +105,7 @@
             
             <div class="search-container">
                 <input type="text" placeholder="Search for courses, quizzes, or documents" class="search-input">
-                <button class="search-btn">
+                <button type="button" class="search-btn">
                     <i class="fas fa-search"></i>
                 </button>
             </div>
@@ -261,7 +267,7 @@
                             <div class="snippet-line">Key components include data definition, data manipulation, and data control...</div>
                         </div>
                     </div>
-                    <button class="view-notes-btn">Read Full Notes</button>
+                    <button type="button" class="view-notes-btn">Read Full Notes</button>
             </div>
             
                 <!-- Chatbot Preview Card -->
@@ -270,7 +276,6 @@
                         <div class="uni-icon" aria-hidden="true">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M12 3C7.03 3 3 6.58 3 11c0 2.53 1.23 4.79 3.17 6.3-.12.98-.54 2.38-1.61 3.57-.21.23-.06.61.25.61 1.27-.03 3.1-.39 4.64-1.32.78.18 1.6.27 2.45.27 4.97 0 9-3.58 9-8s-4.03-8-9-8Z" stroke="currentColor" stroke-width="1.5"/>
-                            </svg>
                         </div>
                         <div class="uni-card-title">Chatbot Preview</div>
                     </div>
@@ -394,17 +399,6 @@
                 <div class="footer-links-wrapper">
                     <div class="footer-links-section">
                         <div class="footer-column">
-                            <h4>Company</h4>
-                            <ul>
-                                <li><a href="#">About Us</a></li>
-                                <li><a href="#">Premium <i class="fas fa-gem"></i></a></li>
-                                <li><a href="#">Academic Integrity</a></li>
-                                <li><a href="#">Careers</a></li>
-                                <li><a href="#">Blog</a></li>
-                            </ul>
-                        </div>
-                        
-                        <div class="footer-column">
                             <h4>Study Tools</h4>
                             <ul>
                                 <li><a href="#">All Tools</a></li>
@@ -414,9 +408,7 @@
                                 <li><a href="#">Study Videos</a></li>
                             </ul>
                         </div>
-                    </div>
 
-                    <div class="footer-links-section">
                         <div class="footer-column">
                             <h4>Support</h4>
                             <ul>
@@ -424,16 +416,6 @@
                                 <li><a href="#">Contact Us</a></li>
                                 <li><a href="#">F.A.Q.</a></li>
                                 <li><a href="#">Newsroom</a></li>
-                            </ul>
-                        </div>
-                        
-                        <div class="footer-column">
-                            <h4>Legal</h4>
-                            <ul>
-                                <li><a href="#">Terms of Use</a></li>
-                                <li><a href="#">Privacy Policy</a></li>
-                                <li><a href="#">Cookie Settings</a></li>
-                                <li><a href="#">Copyright</a></li>
                             </ul>
                         </div>
                     </div>
@@ -459,7 +441,7 @@
                 </div>
                 
                 <div class="footer-settings">
-                    <button class="settings-btn">
+                    <button type="button" class="settings-btn">
                         <i class="fas fa-globe"></i>
                         English (IN)
                     </button>
