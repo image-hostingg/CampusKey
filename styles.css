@@ -1,4 +1,3 @@
-
 /* Reset and Base Styles */
 * {
     margin: 0;
@@ -410,6 +409,8 @@ body {
     font-size: 1.2rem;
     cursor: pointer;
 }
+
+/* Animation section removed - ready for new feature carousel */
 
 .scroll-indicator {
     color: var(--white);
@@ -1685,3 +1686,77 @@ body {
   }
 }
 /* =================== END Community Collaboration Section =================== */
+.feature-carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  margin-top: 2rem;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  background: transparent;
+  mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+}
+
+.carousel-track {
+  display: flex;
+  gap: 2.5rem;
+  animation: scroll-left 18s linear infinite; /* 🔁 Faster, smoother */
+  white-space: nowrap;
+  will-change: transform; /* ✅ GPU acceleration */
+  transform: translateZ(0);
+}
+
+.carousel-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex: 0 0 auto;
+  font-family: var(--font-primary);
+  font-size: 1.1rem;
+  color: white;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  background: transparent;
+  backdrop-filter: blur(4px); /* 🔁 Reduced blur for performance */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.carousel-item:hover {
+  transform: scale(1.05);
+}
+
+.carousel-item span {
+  color: inherit;
+}
+
+.icon {
+  font-size: 28px;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.carousel-item:hover .icon {
+  transform: scale(1.1);
+}
+
+@keyframes scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@media (max-width: 768px) {
+  .carousel-item {
+    font-size: 0.95rem;
+    padding: 0.4rem 0.8rem;
+  }
+  .carousel-track {
+    gap: 1.5rem;
+    animation-duration: 14s; /* 🔁 Slightly faster on mobile */
+  }
+}
+
+
